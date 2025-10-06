@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Locations</title>
+</head>
+<body>
+<h1>Locations</h1>
+<a href="{{ url_for('add_location') }}">Add Location</a>
+<ul>
+{% for location in locations %}
+    <li>{{ location.name }} - <a href="{{ url_for('edit_location', location_id=location.location_id) }}">Edit</a></li>
+{% endfor %}
+</ul>
+<a href="{{ url_for('index') }}">Home</a>
+</body>
+</html>
