@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Movement</title>
+</head>
+<body>
+<h1>Add Product Movement</h1>
+<form method="post">
+    Product: 
+    <select name="product_id">
+    {% for p in products %}
+        <option value="{{ p.product_id }}">{{ p.name }}</option>
+    {% endfor %}
+    </select><br><br>
+
+    From Location: 
+    <select name="from_location">
+        <option value="">--None--</option>
+        {% for l in locations %}
+            <option value="{{ l.location_id }}">{{ l.name }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    To Location: 
+    <select name="to_location">
+        <option value="">--None--</option>
+        {% for l in locations %}
+            <option value="{{ l.location_id }}">{{ l.name }}</option>
+        {% endfor %}
+    </select><br><br>
+
+    Quantity: <input type="number" name="qty" min="1" required><br><br>
+
+    <input type="submit" value="Save">
+</form>
+<a href="{{ url_for('list_movements') }}">Back to Movements</a>
+</body>
+</html>
