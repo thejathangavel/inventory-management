@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if product %}Edit{% else %}Add{% endif %} Product</title>
+</head>
+<body>
+<h1>{% if product %}Edit{% else %}Add{% endif %} Product</h1>
+<form method="post">
+    Name: <input type="text" name="name" value="{{ product.name if product else '' }}">
+    <input type="submit" value="Save">
+</form>
+<a href="{{ url_for('list_products') }}">Back to Products</a>
+</body>
+</html>
