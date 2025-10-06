@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if location %}Edit{% else %}Add{% endif %} Location</title>
+</head>
+<body>
+<h1>{% if location %}Edit{% else %}Add{% endif %} Location</h1>
+<form method="post">
+    Name: <input type="text" name="name" value="{{ location.name if location else '' }}">
+    <input type="submit" value="Save">
+</form>
+<a href="{{ url_for('list_locations') }}">Back to Locations</a>
+</body>
+</html>
